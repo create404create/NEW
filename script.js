@@ -13,7 +13,12 @@ function fetchData(phoneNumber) {
     const apiUrl = `https://tcpa.api.uspeoplesearch.net/tcpa/v1?x=${phoneNumber}`;
 
     fetch(apiUrl)
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
         .then(data => {
             updateUI(data);
         })
@@ -25,10 +30,10 @@ function fetchData(phoneNumber) {
 
 // Update UI with API Data
 function updateUI(data) {
-    document.getElementById('phone').querySelector('.tcpa-value').textContent = data.phone || 'N/A';
-    document.getElementById('state').querySelector('.tcpa-value').textContent = data.state || 'N/A';
-    document.getElementById('dnc-national').querySelector('.tcpa-value').textContent = data.dncNational || 'N/A';
-    document.getElementById('dnc-state').querySelector('.tcpa-value').textContent = data.dncState || 'N/A';
-    document.getElementById('cases').querySelector('.tcpa-value').textContent = data.litigator || 'N/A';
-    document.getElementById('listed').querySelector('.tcpa-value').textContent = data.blacklist || 'N/A';
+    document.getElementById('phone').querySelector('.tcpa-value').textContent = data.phone || 'Not Found';
+    document.getElementById('state').querySelector('.tcpa-value').textContent = data.state || 'Not Found';
+    document.getElementById('dnc-national').querySelector('.tcpa-value').textContent = data.dncNational || 'Not Found';
+    document.getElementById('dnc-state').querySelector('.tcpa-value').textContent = data.dncState || 'Not Found';
+    document.getElementById('cases').querySelector('.tcpa-value').textContent = data.litigator || 'Not Found';
+    document.getElementById('listed').querySelector('.tcpa-value').textContent = data.blacklist || 'Not Found';
 }
