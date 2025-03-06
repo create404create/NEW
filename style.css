@@ -8,84 +8,110 @@
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
+    background-color: #f8f9fa;
+    color: #333;
 }
 
 /* Header */
+header {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.site-logo-container {
+    display: flex;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.site-logo svg {
+    width: 50px;
+    height: 50px;
+}
+
+.site-title {
+    margin-left: 10px;
+}
+
+.title-begin {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2D5B8D;
+}
+
+.title-end {
+    font-size: 14px;
+    color: #F60610;
+    text-align: right;
+}
+
+/* Main Content */
+#main {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.input-form {
+    margin-bottom: 20px;
+}
+
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
-    background-color: #f8f9fa;
+    margin-bottom: 20px;
 }
 
-.logo img {
-    height: 40px;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-}
-
-.nav-links li {
-    margin-left: 20px;
-}
-
-.nav-links a {
+.nav-link {
     text-decoration: none;
     color: #333;
+    margin-right: 20px;
 }
 
-/* Search Bar */
-#search {
-    padding: 50px 20px;
-    text-align: center;
-    background-color: #e9ecef;
+.nav-link:hover {
+    color: #F60610;
 }
 
-.search-container {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-#search-input {
-    width: 80%;
+#input {
+    width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    font-size: 16px;
 }
 
-#search-button {
+#submit {
     padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
+    background-color: #2D5B8D;
+    color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
-#search-button:hover {
-    background-color: #0056b3;
-}
-
-/* Map Widget */
-#map-widget {
-    padding: 50px 20px;
-    text-align: center;
-}
-
-#map {
-    height: 400px;
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
-    border-radius: 10px;
+#submit:hover {
+    background-color: #F60610;
 }
 
 /* Footer */
 footer {
+    background-color: #2D5B8D;
+    color: #fff;
     padding: 20px;
     text-align: center;
-    background-color: #333;
-    color: white;
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.footer-links a:hover {
+    color: #F60610;
 }
