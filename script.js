@@ -1,14 +1,22 @@
 // Search Bar Functionality
-document.getElementById('search-button').addEventListener('click', function () {
-    const query = document.getElementById('search-input').value;
-    if (query) {
-        alert(`You searched for: ${query}`);
+document.getElementById('submit').addEventListener('click', function () {
+    const input = document.getElementById('input').value;
+    if (input) {
+        alert(`You searched for: ${input}`);
         // Add backend API call here to fetch results
     } else {
         alert('Please enter a search term.');
     }
 });
 
-// Map Widget (Static for now)
-const mapElement = document.getElementById('map');
-mapElement.innerHTML = "<p>Map will be displayed here.</p>";
+// Example: Update Blacklist Status
+const tcpaValues = document.querySelectorAll('.tcpa-value');
+tcpaValues.forEach(value => {
+    value.textContent = 'Loading...';
+});
+
+setTimeout(() => {
+    tcpaValues.forEach(value => {
+        value.textContent = 'Not Found';
+    });
+}, 2000);
