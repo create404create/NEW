@@ -2,108 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>US People Search</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <title>Pak SIM Data</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Header Section -->
-    <header>
-        <div class="site-logo-container">
-            <div class="site-logo">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-                    <path fill="#F60610" d="M31.414,28.586l-9.648-9.648c1.213-1.706,2-3.736,2.183-5.938h-4.019c-0.495,3.94-3.859,7-7.931,7 s-7.436-3.06-7.931-7H0.051C0.562,19.15,5.72,24,12,24c2.588,0,4.979-0.833,6.939-2.233l9.646,9.647L31.414,28.586z"/>
-                    <path fill="#2D5B8D" d="M12,4c4.072,0,7.436,3.06,7.931,7h4.019C23.438,4.85,18.28,0,12,0S0.562,4.85,0.051,11h4.019 C4.564,7.06,7.928,4,12,4z"/>
-                </svg>
-            </div>
-            <div class="site-title">
-                <div class="user-icon-container">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="#2D5B8D" viewBox="0 0 52 52">
-                        <path d="M 30.933594 32.527344 C 30.785156 30.914063 30.84375 29.789063 30.84375 28.316406 C 31.574219 27.933594 32.882813 25.492188 33.101563 23.429688 C 33.675781 23.382813 34.582031 22.824219 34.847656 20.613281 C 34.988281 19.425781 34.421875 18.757813 34.074219 18.546875 C 35.007813 15.738281 36.949219 7.046875 30.488281 6.148438 C 29.820313 4.980469 28.117188 4.390625 25.90625 4.390625 C 17.050781 4.554688 15.984375 11.078125 17.925781 18.546875 C 17.578125 18.757813 17.011719 19.425781 17.152344 20.613281 C 17.421875 22.824219 18.324219 23.382813 18.898438 23.429688 C 19.117188 25.492188 20.476563 27.933594 21.210938 28.316406 C 21.210938 29.789063 21.265625 30.914063 21.117188 32.527344 C 19.367188 37.238281 7.546875 35.914063 7 45 L 45 45 C 44.453125 35.914063 32.683594 37.238281 30.933594 32.527344 Z"/>
-                    </svg>
-                </div>
-                <h1 class="title-begin">US PEOPLE</h1>
-                <h1 class="title-end">SEARCH</h1>
-            </div>
-        </div>
-    </header>
-
-    <!-- Main Content -->
-    <div id="main">
-        <div class="input-form scrub-input">
-            <nav class="nav-wrap">
-                <ul class="navbar">
-                    <li><a class="nav-link" href="#!">Reverse Phone</a></li>
-                    <li><a class="nav-link" href="/email">Reverse Email</a></li>
-                    <a href="https://bk.uspeoplesearch.net/" class="navigator" target="_blank">Backup engine<i class="fa-solid fa-arrow-up-right-from-square navigator-icon"></i></a>
-                </ul>
-            </nav>
-            <form onsubmit="return false;">
-                <label id="num_wrap">
-                    <input id="input" type="text" name="input" placeholder="7861772343">
-                    <p class="hidden" id="invalid">Invalid Number!</p>
-                </label>
-                <button id="submit" type="submit"><i class="fas fa-search"></i></button>
-            </form>
-        </div>
-
-        <!-- Results Section -->
-        <div class="tcpa-status">
-            <div class="heading">Blacklist Status</div>
-            <div class="tcpa" id="tcpa">
-                <div class="tcpa-row" id="phone">
-                    <div class="tcpa-label">Phone</div>
-                    <div class="tcpa-value">...</div>
-                </div>
-                <div class="tcpa-row" id="state">
-                    <div class="tcpa-label">State</div>
-                    <div class="tcpa-value">...</div>
-                </div>
-                <div class="tcpa-row" id="dnc-national">
-                    <div class="tcpa-label">DNC<sub>National</sub></div>
-                    <div class="tcpa-value">...</div>
-                </div>
-                <div class="tcpa-row" id="dnc-state">
-                    <div class="tcpa-label">DNC<sub>State</sub></div>
-                    <div class="tcpa-value">...</div>
-                </div>
-                <div class="tcpa-row" id="cases">
-                    <div class="tcpa-label">Litigator</div>
-                    <div class="tcpa-value">...</div>
-                </div>
-                <div class="tcpa-row" id="listed">
-                    <div class="tcpa-label">Blacklist</div>
-                    <div class="tcpa-value">...</div>
-                </div>
-            </div>
-        </div>
+    <div class="container">
+        <h1>Pak SIM Data Lookup</h1>
+        <form id="simDataForm">
+            <input type="text" id="mobileNumber" placeholder="Enter Mobile Number" required>
+            <button type="submit">Get Data</button>
+        </form>
+        <div id="result"></div>
     </div>
-
-    <!-- Footer Section -->
-    <footer>
-        <div class="footer">
-            <div class="footer-tagline">
-                <h2 class="title footer-logo">-_ US PEOPLE SEARCH</h2>
-                <button class="contact-us" onclick="window.open('https://join.skype.com/invite/ENHMqDFIcQyO', '_blank');" type="button">Contact Us</button>
-            </div>
-            <div class="footer-links">
-                <a href="/ud">Name Search</a>
-                <a href="/">Reverse Phone</a>
-                <a href="/email">Reverse Email</a>
-                <a href="/ud">About Us</a>
-                <a href="/ud">How Tos'</a>
-                <a href="/ud">FAQs</a>
-                <a href="/ud">Terms of Use</a>
-            </div>
-            <div class="copyrights">
-                © 2024 uspeoplesearch.net
-            </div>
-        </div>
-    </footer>
-
-    <!-- JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
