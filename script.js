@@ -1,39 +1,29 @@
-// Search Bar Functionality
-document.getElementById('submit').addEventListener('click', function () {
-    const input = document.getElementById('input').value;
-    if (input) {
-        fetchData(input);
-    } else {
-        alert('Please enter a search term.');
-    }
+document.getElementById('simDataForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const mobileNumber = document.getElementById('mobileNumber').value;
+    fetchData(mobileNumber);
 });
 
-// Fetch Data from API
-function fetchData(phoneNumber) {
-    const apiUrl = `https://tcpa.api.uspeoplesearch.net/tcpa/v1?x=${phoneNumber}`;
+function fetchData(mobileNumber) {
+    const apiUrl = `https://api.minahilsimdetails.com/data?number=${mobileNumber}`; // Replace with your API URL
 
     fetch(apiUrl)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
+        .then(response => response.json())
         .then(data => {
-            updateUI(data);
+            const resultDiv = document.getElementById('result');
+            if (data.error) {
+                resultDiv.innerHTML = `<p>Error: ${data.error}</p>`;
+            } else {
+                resultDiv.innerHTML = `
+                    <p><strong>Name:</strong> ${data.name}</p>
+                    <p><strong>CNIC:</strong> ${data.cnic}</p>
+                    <p><strong>Address:</strong> ${data.address}</p>
+                    <p><strong>Network:</strong> ${data.network}</p>
+                `;
+            }
         })
         .catch(error => {
-            console.error('Error fetching data:', error);
-            alert('Failed to fetch data. Please try again.');
+            console.error('Error:', error);
+            document.getElementById('result').innerHTML = `<p>An error occurred while fetching data.</p>`;
         });
-}
-
-// Update UI with API Data
-function updateUI(data) {
-    document.getElementById('phone').querySelector('.tcpa-value').textContent = data.phone || 'Not Found';
-    document.getElementById('state').querySelector('.tcpa-value').textContent = data.state || 'Not Found';
-    document.getElementById('dnc-national').querySelector('.tcpa-value').textContent = data.dncNational || 'Not Found';
-    document.getElementById('dnc-state').querySelector('.tcpa-value').textContent = data.dncState || 'Not Found';
-    document.getElementById('cases').querySelector('.tcpa-value').textContent = data.litigator || 'Not Found';
-    document.getElementById('listed').querySelector('.tcpa-value').textContent = data.blacklist || 'Not Found';
 }
